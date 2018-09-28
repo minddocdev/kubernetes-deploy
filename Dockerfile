@@ -27,4 +27,4 @@ RUN chmod +x /usr/local/bin/helm
 
 WORKDIR /config
 
-CMD bash
+CMD ["bash"]
