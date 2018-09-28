@@ -1,6 +1,6 @@
 # Kubernetes deploy docker image
 
-[![Build Status](https://travis-ci.org/mind-doc/kubernetes-deploy.svg?branch=master)](https://travis-ci.org/mind-doc/kubernetes-deploy)
+[![Build Status](https://travis-ci.org/minddocdev/kubernetes-deploy.svg?branch=master)](https://travis-ci.org/mind-doc/kubernetes-deploy)
 
 Docker container with helm, kubectl and docker commands support.
 Helm and kubectl are adapted from [dtzar/helm-kubectl](https://github.com/dtzar/helm-kubectl/blob/master/Dockerfile), over the `docker/latest` layer.
