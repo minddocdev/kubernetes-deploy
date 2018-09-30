@@ -14,8 +14,8 @@ LABEL maintainer="development@minddoc.com"
 ENV KUBE_VERSION="v1.11.3"
 ENV HELM_VERSION="v2.11.0"
 
-# Dependencies
-RUN apk add --no-cache ca-certificates bash git
+# Dependencies and handy packages for CI pipeline
+RUN apk add --no-cache ca-certificates bash git curl
 
 # Binary downloads
 RUN wget -q https://storage.googleapis.com/kubernetes-release/release/${KUBE_VERSION}/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl
