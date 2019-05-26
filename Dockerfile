@@ -28,6 +28,9 @@ RUN chmod +x /usr/local/bin/helm
 # Install sentry client
 RUN curl -sL https://sentry.io/get-cli/ | bash
 
+# Install slack-message script
+COPY slack-message.sh /usr/local/bin/slack-message
+
 WORKDIR /config
 
 CMD ["bash"]
