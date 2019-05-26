@@ -25,6 +25,9 @@ RUN wget -q https://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}-
 RUN chmod +x /usr/local/bin/kubectl
 RUN chmod +x /usr/local/bin/helm
 
+# Install sentry client
+RUN curl -sL https://sentry.io/get-cli/ | bash
+
 WORKDIR /config
 
 CMD ["bash"]
