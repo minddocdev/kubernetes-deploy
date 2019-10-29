@@ -24,7 +24,7 @@ Each docker image tag points to a specific Helm version.
 
 | Git Tag                                                                        | Helm version                                                 | Docker Tags        |
 | :----------------------------------------------------------------------------: |:----------------------------------------------------:        | :-----------------:|
-| [2.15.1](hhttps://github.com/minddocdev/kubernetes-deploy/releases/tag/2.15.1) | [v2.15.1](https://github.com/helm/helm/releases/tag/v2.15.1) | `2.15.1`, `latest` |
+| [2.15.1](https://github.com/minddocdev/kubernetes-deploy/releases/tag/2.15.1) | [v2.15.1](https://github.com/helm/helm/releases/tag/v2.15.1) | `2.15.1`, `latest` |
 | [2.11.0](https://github.com/minddocdev/kubernetes-deploy/releases/tag/2.11.0)  | [v2.11.0](https://github.com/helm/helm/releases/tag/v2.11.0) | `2.11.0`           |
 
 
