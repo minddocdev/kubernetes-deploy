@@ -4,11 +4,11 @@
 # image:    kubernetes-deploy
 # name:     minddocdev/kubernetes-deploy
 # repo:     https://github.com/minddocdev/kubernetes-deploy
-# Requires: alpine:3.10.3
+# Requires: docker:19.03
 # authors:  development@minddoc.com
 # ------------------------------------------------------
 
-FROM alpine:3.10.3
+FROM docker:19.03
 LABEL maintainer="development@minddoc.com"
 
 ENV HELM_VERSION="v2.15.1"
