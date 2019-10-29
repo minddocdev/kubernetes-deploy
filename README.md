@@ -2,11 +2,11 @@
 
 [![Build Status](https://travis-ci.org/minddocdev/kubernetes-deploy.svg?branch=master)](https://travis-ci.org/mind-doc/kubernetes-deploy)
 
-Docker image with helm, kubectl, docker commands support, sentry client and slack webhook script.
+Docker image with docker, helm, helm-gcs, kubectl, gcloud, sentry client and slack webhook script.
 
-This image is useful for running `docker` commands to build and publish an image, while applying it to a Kubernetes cluster with `helm` and `kubectl`.
+This image is useful for deploying Kubernetes applications with `helm` and `kubectl`. Optiona tools like `gcloud`, `sentry-client` and a `slack` push notification are provided. In addition, you can 
 
-The `helm` and `kubectl` command installation is inspired on [dtzar/helm-kubectl](https://github.com/dtzar/helm-kubectl/blob/master/Dockerfile). To reduce image size, the base is `docker/latest`, which is an `alpine`.
+The `helm` and `kubectl` command installation is inspired on [dtzar/helm-kubectl](https://github.com/dtzar/helm-kubectl/blob/master/Dockerfile). To reduce image size, the base is `docker`, which is an `alpine` image itself.
 
 Sentry client uses the [automatic installation](https://docs.sentry.io/cli/installation/#automatic-installation). One example use case is [associate commits with a release](https://docs.sentry.io/workflow/releases/#associate-commits-with-a-release).
 
