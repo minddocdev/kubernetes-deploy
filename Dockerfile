@@ -11,10 +11,10 @@
 FROM docker:19.03
 LABEL maintainer="development@minddoc.com"
 
-ENV HELM_VERSION="v2.15.1"
+ENV HELM_VERSION="v2.15.2"
 
 # Dependencies and handy packages for CI pipeline
-RUN apk add --no-cache bash ca-certificates curl git jq python tar wget
+RUN apk add --no-cache bash ca-certificates curl git gnupg jq python tar wget
 
 # Install gcloud and kubectl
 RUN wget \
