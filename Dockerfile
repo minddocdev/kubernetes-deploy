@@ -11,7 +11,7 @@
 FROM docker:19.03
 LABEL maintainer="development@minddoc.com"
 
-ENV HELM_VERSION="v2.15.2"
+ENV HELM_VERSION="v3.0.0"
 
 # Dependencies and handy packages for CI pipeline
 RUN apk add --no-cache bash ca-certificates curl git gnupg jq python tar wget
@@ -27,14 +27,17 @@ RUN google-cloud-sdk/install.sh \
   --bash-completion=true \
   --rc-path=/.bashrc \
   --additional-components app kubectl alpha beta
-RUN google-cloud-sdk/bin/gcloud config set --installation component_manager/disable_update_check true
+RUN google-cloud-sdk/bin/gcloud config set \
+  --installation component_manager/disable_update_check true
 
 # Install helm
-RUN wget \
-  -q https://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}-linux-amd64.tar.gz \
-  -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm
+RUN wget https://keybase.io/bacongobbler/pgp_keys.asc -O - | gpg --import
+RUN wget -q https://github.com/helm/helm/releases/download/${HELM_VERSION}/helm-${HELM_VERSION}-linux-amd64.tar.gz.asc
+RUN wget -q https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz
+RUN gpg --verify helm-${HELM_VERSION}-linux-amd64.tar.gz.asc helm-${HELM_VERSION}-linux-amd64.tar.gz
+RUN tar -zxvf helm-${HELM_VERSION}-linux-amd64.tar.gz
+RUN mv linux-amd64/helm /usr/local/bin/helm && rm -rf linux-amd64
 RUN chmod +x /usr/local/bin/helm
-RUN helm init --client-only
 RUN helm plugin install https://github.com/hayorov/helm-gcs
 
 # Install sentry client
