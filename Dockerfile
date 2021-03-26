@@ -11,6 +11,7 @@
 FROM docker:19.03
 LABEL maintainer="development@minddoc.com"
 
+# Set helm version
 ENV HELM_VERSION="v3.2.0"
 
 # Dependencies and handy packages for CI pipeline
