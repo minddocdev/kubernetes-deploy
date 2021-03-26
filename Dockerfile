@@ -11,7 +11,7 @@
 FROM docker:19.03
 LABEL maintainer="development@minddoc.com"
 
-ENV HELM_VERSION="v3.0.0"
+ENV HELM_VERSION="v3.2.0"
 
 # Dependencies and handy packages for CI pipeline
 RUN apk add --no-cache bash ca-certificates curl git gnupg jq python tar wget
