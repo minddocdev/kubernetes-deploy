@@ -4,18 +4,15 @@
 # image:    kubernetes-deploy
 # name:     minddocdev/kubernetes-deploy
 # repo:     https://github.com/minddocdev/kubernetes-deploy
-# Requires: docker:19.03
+# Requires: alpine/helm:3.5.3
 # authors:  development@minddoc.com
 # ------------------------------------------------------
 
-FROM docker:19.03
+FROM alpine/helm:3.5.3
 LABEL maintainer="development@minddoc.com"
 
-# Set helm version
-ENV HELM_VERSION="v3.2.0"
-
 # Dependencies and handy packages for CI pipeline
-RUN apk add --no-cache bash ca-certificates curl git gnupg jq python tar wget
+RUN apk add --update --no-cache bash ca-certificates curl git gnupg jq python3 tar wget
 
 # Install gcloud and kubectl
 RUN wget \
@@ -33,16 +30,7 @@ RUN google-cloud-sdk/bin/gcloud config set \
 RUN ln -s /google-cloud-sdk/bin/gcloud /usr/bin/gcloud
 RUN ln -s /google-cloud-sdk/bin/kubectl /usr/bin/kubectl
 
-# Install helm
-RUN wget https://keybase.io/bacongobbler/pgp_keys.asc -O - | gpg --import
-RUN wget -q https://github.com/helm/helm/releases/download/${HELM_VERSION}/helm-${HELM_VERSION}-linux-amd64.tar.gz.asc
-RUN wget -q https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz
-RUN gpg --verify helm-${HELM_VERSION}-linux-amd64.tar.gz.asc helm-${HELM_VERSION}-linux-amd64.tar.gz &&\
-  rm helm-${HELM_VERSION}-linux-amd64.tar.gz.asc
-RUN tar -zxvf helm-${HELM_VERSION}-linux-amd64.tar.gz &&\
-  rm helm-${HELM_VERSION}-linux-amd64.tar.gz
-RUN mv linux-amd64/helm /usr/local/bin/helm && rm -rf linux-amd64
-RUN chmod +x /usr/local/bin/helm
+# Install helm plugins
 RUN helm plugin install https://github.com/hayorov/helm-gcs
 
 # Install sentry client

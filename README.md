@@ -1,8 +1,6 @@
 # Kubernetes deploy docker image
 
-[![Build Status](https://travis-ci.org/minddocdev/kubernetes-deploy.svg?branch=master)](https://travis-ci.org/mind-doc/kubernetes-deploy)
-
-Docker image with docker, helm, helm-gcs, kubectl, gcloud, sentry client and slack webhook script.
+Docker image with helm, helm-gcs, kubectl, gcloud, sentry client and slack webhook script.
 
 This image is useful for deploying Kubernetes applications with `helm` and `kubectl`.
 Optional tools like `gcloud`, `sentry-client` and a `slack` push notification are provided.
@@ -28,7 +26,7 @@ Each docker image tag points to a specific Helm version.
 
 | Git Tag                                                                        | Helm version                                                 | Docker Tags        |
 | :----------------------------------------------------------------------------: | :----------------------------------------------------------: | :----------------: |
-| [3.2.0](https://github.com/minddocdev/kubernetes-deploy/releases/tag/3.2.0)    | [v3.2.0](https://github.com/helm/helm/releases/tag/v3.2.0)   | `3.2.0`, `latest`  |
+| [3.5.2](https://github.com/minddocdev/kubernetes-deploy/releases/tag/3.5.2)    | [v3.5.2](https://github.com/helm/helm/releases/tag/v3.5.2)   | `3.5.2`, `latest`  |
 | [3.0.0](https://github.com/minddocdev/kubernetes-deploy/releases/tag/3.0.0)    | [v3.0.0](https://github.com/helm/helm/releases/tag/v3.0.0)   | `3.0.0`            |
 | [2.15.2](https://github.com/minddocdev/kubernetes-deploy/releases/tag/2.15.2)  | [v2.15.2](https://github.com/helm/helm/releases/tag/v2.15.2) | `2.15.1`           |
 | [2.15.1](https://github.com/minddocdev/kubernetes-deploy/releases/tag/2.15.1)  | [v2.15.1](https://github.com/helm/helm/releases/tag/v2.15.1) | `2.15.1`           |
