@@ -45,4 +45,4 @@ COPY slack-message.sh /usr/local/bin/slack-message
 
 WORKDIR /config
 
-CMD ["bash"]
+ENTRYPOINT [ "bash" ]
