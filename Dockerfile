@@ -14,7 +14,7 @@ LABEL maintainer="development@minddoc.com"
 # Dependencies and handy packages for CI pipeline
 RUN apk add --update --no-cache bash ca-certificates curl git gnupg jq python3 tar wget
 
-# Install gcloud and kubectl
+# Install gcloud
 RUN wget \
   -q https://dl.google.com/dl/cloudsdk/channels/rapid/google-cloud-sdk.zip \
   && unzip google-cloud-sdk.zip \
@@ -24,11 +24,15 @@ RUN google-cloud-sdk/install.sh \
   --path-update=true \
   --bash-completion=true \
   --rc-path=/.bashrc \
-  --additional-components app kubectl alpha beta
+  --additional-components app alpha beta
 RUN google-cloud-sdk/bin/gcloud config set \
   --installation component_manager/disable_update_check true
 RUN ln -s /google-cloud-sdk/bin/gcloud /usr/bin/gcloud
-RUN ln -s /google-cloud-sdk/bin/kubectl /usr/bin/kubectl
+
+# Install kubectl
+RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl \ 
+  && chmod +x ./kubectl \
+  && ln -s ./kubectl /usr/bin/kubectl
 
 # Install helm plugins
 RUN helm plugin install https://github.com/hayorov/helm-gcs
