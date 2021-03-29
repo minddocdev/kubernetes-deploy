@@ -32,7 +32,7 @@ RUN ln -s /google-cloud-sdk/bin/gcloud /usr/bin/gcloud
 # Install kubectl
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl \ 
   && chmod +x ./kubectl \
-  && ln -s ./kubectl /usr/bin/kubectl
+  && mv ./kubectl /usr/bin/kubectl
 
 # Install helm plugins
 RUN helm plugin install https://github.com/hayorov/helm-gcs
